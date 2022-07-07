@@ -1,0 +1,28 @@
+create sequence seqEstado
+increment by 1
+start with 1
+cache 10;
+
+create table tb_fatmensal
+(
+cd_estado number(5),
+nm_estado varchar2(10),
+nr_fat number(12),
+constraint tb_fatmensal_cd_estado_pk primary key(cd_estado)
+);
+
+insert into tb_fatmensal(cd_estado, nm_estado, nr_fat)
+ values(seqEstado.nextval, 'SP', 67836.43);
+insert into tb_fatmensal(cd_estado, nm_estado, nr_fat)
+ values(seqEstado.nextval, 'RJ', 36678.66);
+insert into tb_fatmensal(cd_estado, nm_estado, nr_fat)
+ values(seqEstado.nextval, 'MG', 29229.88);
+insert into tb_fatmensal(cd_estado, nm_estado, nr_fat)
+ values(seqEstado.nextval, 'ES', 27165.48);
+insert into tb_fatmensal(cd_estado, nm_estado, nr_fat)
+ values(seqEstado.nextval, 'Outros', 19849.53);
+
+select nm_estado"Estado", 
+ to_char(nr_fat/(select sum(nr_fat)"Soma" from tb_fatmensal) * 100, '99.99') "Porcentagem",
+ rpad(' ',nr_fat/1000,'*')"Grafico"
+ from tb_fatmensal order by cd_estado;
