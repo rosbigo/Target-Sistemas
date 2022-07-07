@@ -1,0 +1,32 @@
+#include<stdio.h>
+#include<conio.h>
+#include <string.h>
+#include <locale.h> //necessário para usar setlocale
+int main ()
+{
+setlocale(LC_ALL, "Portuguese");
+int num,prox=1,ant=1,aux=0;
+printf("Informe o número.\n ");
+scanf("%d",&num);
+while(prox<=num)
+{
+prox=ant+aux;
+aux=ant;
+ant=prox;
+if(prox<=num)
+{
+printf("%d ",prox);
+}
+}
+printf("\n");
+if (prox=num)
+ {
+  printf("O seu número pertence a sequência de Fibonacci!");
+ }
+else
+ {
+ printf("O seu número não pertence a sequência de Fibonacci!");
+ }
+printf("\n\n");
+return 0;
+}
