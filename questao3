@@ -1,0 +1,76 @@
+create sequence seqDia
+increment by 1
+start with 1
+cache 10;
+
+create table tb_faturamento
+(
+cd_dia number(5),
+nr_fat number(12),
+constraint tb_faturamento_cd_dia_pk primary key(cd_dia)
+);
+
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 22174.1664);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 24537.6698);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 26139.6134);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 0.0);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 0.0);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 26742.6612);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 0.0);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 42889.2258);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 46251.174);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 11191.4722);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 0.0);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 0.0);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 3847.4823);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 373.7838); 
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 2659.7563);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 48924.2448);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 18419.2614);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 0.0);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 0.0);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 35240.1826);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 43829.1667);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 18235.6852);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 4355.0662);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 13327.1025);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 0.0);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 0.0);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 25681.8318);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 1718.1221);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 13220.495);
+insert into tb_faturamento(cd_dia, nr_fat) 
+ values(seqDia.nextval, 8414.61);
+
+select cd_dia, nr_fat from tb_faturamento order by nr_fat;
+select cd_dia, nr_fat from tb_faturamento order by nr_fat desc;
+select count(cd_dia)"Dias acima da média" from tb_faturamento where nr_fat > (select avg(nr_fat) from tb_faturamento);
